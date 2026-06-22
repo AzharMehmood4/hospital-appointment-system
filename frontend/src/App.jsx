@@ -1,12 +1,12 @@
 import './App.css'
-
+import Home from './pages/Home'
 function App() {
 
   return (
     <>
-      <h1 class="text-3xl bg-dark font-bold underline">
-    Hello world!
-  </h1>
+    <div>
+      <Home/>
+    </div>
     </>
   )
 }

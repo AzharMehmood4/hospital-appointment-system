@@ -13,6 +13,12 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
+// import routes
+const appointmentRoutes = require("./routes/appointmentRoutes");
+
+// use routes
+app.use("/api/appointments", appointmentRoutes);
+
 app.get("/", (req, res) => {
   res.send("hospital Appointment API Running...");
 });
