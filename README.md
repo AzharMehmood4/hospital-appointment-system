@@ -2,6 +2,10 @@
 
 A full-stack hospital appointment system with a React + Vite frontend and an Express + MongoDB backend. The app lets patients book appointments, view doctors, search appointments, and lets administrators manage appointment statuses.
 
+## Live preview
+
+- https://hospital-appointment-system-git-main-azharkhank.vercel.app/
+
 ## Features
 
 - Book a new appointment with patient and doctor details
