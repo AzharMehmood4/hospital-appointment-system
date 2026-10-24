@@ -28,6 +28,12 @@ textarea {
 
 button {
   cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(192, 95, 56, 0.42);
+  outline-offset: 3px;
 }
 
 .app {
@@ -66,7 +72,7 @@ button {
   width: 42px;
   height: 42px;
   place-items: center;
-  border-radius: 8px;
+  border-radius: 12px;
   color: #ffffff;
   background: #1f7a75;
   font-weight: 800;
@@ -97,6 +103,11 @@ button {
   padding: 10px 13px;
   color: #435150;
   background: transparent;
+}
+
+.nav-links button {
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .nav-links button.active,
@@ -132,7 +143,7 @@ button {
   color: #17202a;
   font-size: clamp(36px, 6vw, 72px);
   line-height: 0.96;
-  letter-spacing: 0;
+  letter-spacing: -0.045em;
 }
 
 .hero-copy p,
@@ -176,6 +187,19 @@ button {
 .primary-btn {
   color: #ffffff;
   background: #1f7a75;
+  box-shadow: 0 9px 18px rgba(31, 122, 117, 0.18);
+}
+
+.primary-btn:hover:not(:disabled) {
+  background: #176963;
+  box-shadow: 0 12px 24px rgba(31, 122, 117, 0.24);
+  transform: translateY(-1px);
+}
+
+.ghost-btn:hover,
+.danger-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(23, 32, 42, 0.08);
 }
 
 .primary-btn:disabled {
@@ -309,6 +333,13 @@ button {
   grid-template-columns: auto 1fr;
   gap: 16px;
   padding: 18px;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.doctor-card:hover {
+  border-color: rgba(31, 122, 117, 0.24);
+  box-shadow: 0 26px 62px rgba(23, 32, 42, 0.12);
+  transform: translateY(-4px);
 }
 
 .doctor-avatar {
@@ -316,9 +347,9 @@ button {
   width: 58px;
   height: 58px;
   place-items: center;
-  border-radius: 8px;
+  border-radius: 18px 18px 18px 6px;
   color: #ffffff;
-  background: #344e5c;
+  background: linear-gradient(145deg, #416a77, #244452);
   font-size: 24px;
   font-weight: 900;
 }
@@ -541,6 +572,15 @@ textarea:focus {
   border-top: 1px solid rgba(23, 32, 42, 0.08);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @media (max-width: 920px) {
   .topbar,
   .toolbar,
@@ -573,6 +613,20 @@ textarea:focus {
 @media (max-width: 640px) {
   .topbar {
     padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .nav-links {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: thin;
+  }
+
+  .nav-links button {
+    flex: 0 0 auto;
+    padding: 8px 10px;
   }
 
   .hero,
